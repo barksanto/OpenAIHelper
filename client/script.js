@@ -84,8 +84,8 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv)
 
-  const response = await fetch("https://localhost:5001", {
-    //https://aihelper.onrender.com
+  const response = await fetch("https://aihelper.onrender.com", {
+    //https://aihelper.onrender.com https://localhost:5001
     method: "POST",
     headers: {
       "Content-Type": "application/json",
