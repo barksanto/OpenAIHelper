@@ -125,3 +125,8 @@ form.addEventListener("keyup", (e) => {
     handleSubmit(e)
   }
 })
+
+document.querySelector(".resetButton").addEventListener("click", () => {
+  location.reload()
+  return
+})
