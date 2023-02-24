@@ -44,6 +44,9 @@ function generateUniqueId() {
   return `id-${timestamp}-${hexadecimalString}`
 }
 
+const aiStyle = "message aiStyle"
+const userStyle = "message userStyle"
+
 function chatStripe(isAi, value, uniqueId) {
   return `
         <div class="wrapper ${isAi && "ai"}">
@@ -54,7 +57,12 @@ function chatStripe(isAi, value, uniqueId) {
                       alt="${isAi ? "bot" : "user"}" 
                     />
                 </div>
-                <div class="message" id=${uniqueId}>${value}</div>
+                <div class=${
+                  isAi ? "aiStyle message" : "userStyle message"
+                } id=${uniqueId} 
+                style="color: white">
+                ${value}
+                </div>
             </div>
         </div>
     `
@@ -85,7 +93,7 @@ const handleSubmit = async (e) => {
   loader(messageDiv)
 
   const response = await fetch("https://aihelper.onrender.com", {
-    //https://aihelper.onrender.com https://localhost:5001
+    //https://aihelper.onrender.com http://localhost:5001
     method: "POST",
     headers: {
       "Content-Type": "application/json",
